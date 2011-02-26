@@ -44,7 +44,7 @@ all: HelloEclipse
 HelloEclipse: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MacOS X C++ Linker'
-	g++ -L"/Users/onedayitwillmake/GIT/EclipseCinder/libs" -arch i386 -lOpenNI -lopenNI.lib -lNiSampleModule.lib -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -Xlinker /Users/onedayitwillmake/GIT/LIBRARY/Cinder/lib/libcinder_d.a -o "HelloEclipse" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/Users/onedayitwillmake/GIT/EclipseCinder/libs" -arch i386 -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -Xlinker /Users/onedayitwillmake/GIT/LIBRARY/Cinder/lib/libcinder_d.a -o "HelloEclipse" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

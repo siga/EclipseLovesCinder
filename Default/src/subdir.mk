@@ -6,16 +6,19 @@
 CPP_SRCS += \
 ../src/CinderOpenNI.cpp \
 ../src/OpenNIThreadRunner.cpp \
+../src/SimpleGUI.cpp \
 ../src/vcApp.cpp 
 
 OBJS += \
 ./src/CinderOpenNI.o \
 ./src/OpenNIThreadRunner.o \
+./src/SimpleGUI.o \
 ./src/vcApp.o 
 
 CPP_DEPS += \
 ./src/CinderOpenNI.d \
 ./src/OpenNIThreadRunner.d \
+./src/SimpleGUI.d \
 ./src/vcApp.d 
 
 
@@ -23,7 +26,7 @@ CPP_DEPS += \
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I/Users/onedayitwillmake/GIT/LIBRARY/Cinder/boost -I/Users/onedayitwillmake/GIT/LIBRARY/Cinder/include -I"/Users/onedayitwillmake/GIT/EclipseCinder/includes" -O0 -g -Wall -c -fmessage-length=0 -arch i386 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	g++ -I/Users/onedayitwillmake/GIT/LIBRARY/Cinder/boost -I/Users/onedayitwillmake/GIT/LIBRARY/Cinder/include -I"/Users/onedayitwillmake/GIT/EclipseCinder/includes/OpenNI" -I"/Users/onedayitwillmake/GIT/EclipseCinder/includes" -O0 -g -Wall -c -fmessage-length=0 -arch i386 -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
