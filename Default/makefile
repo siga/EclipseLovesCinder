@@ -47,13 +47,18 @@ HelloEclipse: $(OBJS) $(USER_OBJS)
 	g++ -L"/Users/onedayitwillmake/GIT/EclipseCinder/libs" -arch i386 -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -Xlinker /Users/onedayitwillmake/GIT/LIBRARY/Cinder/lib/libcinder_d.a -o "HelloEclipse" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
+	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
 	-$(RM) $(C++_DEPS)$(OBJS)$(C_DEPS)$(CC_DEPS)$(CPP_DEPS)$(EXECUTABLES)$(CXX_DEPS)$(C_UPPER_DEPS) HelloEclipse
 	-@echo ' '
 
+post-build:
+	-mkdir -p HelloEclipse.app/Contents/MacOS ; mv HelloEclipse HelloEclipse.app/Contents/MacOS/; cp -rf ../Resources HelloEclipse.app/Contents/Resources  ; cp -rf ../Resources/Info.plist HelloEclipse.app/Contents/Info.plist
+	-@echo ' '
+
 .PHONY: all clean dependents
-.SECONDARY:
+.SECONDARY: post-build
 
 -include ../makefile.targets
